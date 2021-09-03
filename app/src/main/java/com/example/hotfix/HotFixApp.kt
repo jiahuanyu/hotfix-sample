@@ -44,7 +44,7 @@ class HotFixApp : Application() {
             } catch (e: Exception) {
                 e.printStackTrace()
             } finally {
-                hotFixApk.delete()
+//                hotFixApk.delete()
             }
         }
     }

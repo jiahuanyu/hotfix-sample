@@ -41,3 +41,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
+
+task pushHotFixApk {
+    doLast {
+        def command = "adb push ${rootDir}/app/build/outputs/apk/debug/app-debug.apk /sdcard/Android/data/com.example.hotfix/cache/hotfix.apk"
+        exec {
+            ExecSpec execSpec ->
+                //配置闭包的内容
+                executable 'bash'
+                args '-c', command
+        }
+        println "push hotfix apk success"
+    }
+}
